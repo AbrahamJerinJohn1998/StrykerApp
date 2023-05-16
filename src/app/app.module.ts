@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 const myRoute:Routes=[
   {
-    path:"",
+    path:"viewTools",
     component:ViewtoolsComponent
   }
 ]
