@@ -6,22 +6,26 @@ import { AppComponent } from './app.component';
 import { ViewtoolsComponent } from './viewtools/viewtools.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 const myRoute:Routes=[
   {
-    path:"viewTools",
+    path:"",
     component:ViewtoolsComponent
   }
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    ViewtoolsComponent
+    ViewtoolsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(myRoute),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

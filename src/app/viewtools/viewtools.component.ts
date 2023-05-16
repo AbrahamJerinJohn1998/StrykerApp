@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
 export class ViewtoolsComponent {
   constructor(private api:ApiService)
   {
-   api.ViewTools().subscribe(
+   this.api.ViewTools().subscribe(
     (response:any)=>
     {
       this.data=response;
