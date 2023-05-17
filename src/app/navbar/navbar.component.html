@@ -14,10 +14,66 @@
   <nav class="navbar">
     <ul>
         <li><a routerLink="/powertools">Power Tools</a></li>
-        
+        <li><button (click)="openPopup()">Add Tools</button></li>
       </ul>
   </nav>
+  <div *ngIf="isOpen" class="popup popup-large">
+    <h2>Add Tools</h2>
+    <form (submit)="submitForm()">
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="row g-3">
+                        <div class="col col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                            <label for="name" class="form-label-control">Name:</label>
+                            <input type="text" id="name" name="name" [(ngModel)]="formData.name" class="form-control">
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="category" class="form-label">Category:</label>
+      <input type="category" id="category" name="category" [(ngModel)]="formData.category" class="form-control">
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="quantity" class="form-label">Quantity:</label>
+                            <input type="quantity" id="quantity" name="quantity" [(ngModel)]="formData.quantity" class="form-control">
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="status" class="form-label">Status:</label>
+      <input type="status" id="status" name="status" [(ngModel)]="formData.status" class="form-control">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <label for="description"class="form-label">Description:</label>
+      <input type="description" id="description" name="description" [(ngModel)]="formData.description" class="form-control">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <button type="submit">Submit</button>
+                        </div>
+                        <!-- <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <button type="clear">Clear</button>
+                        </div> -->
+                    </div>
+        
+                </div>
+            </div>
+          </div>
+        
+      <!-- <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="formData.name">
+      
+      <label for="category">Category:</label>
+      <input type="category" id="category" name="category" [(ngModel)]="formData.category">
 
+      <label for="quantity">Quantity:</label>
+      <input type="quantity" id="quantity" name="quantity" [(ngModel)]="formData.quantity">
+
+      <label for="status">Status:</label>
+      <input type="status" id="status" name="status" [(ngModel)]="formData.status">
+
+      <label for="description">Description:</label>
+      <input type="description" id="description" name="description" [(ngModel)]="formData.description">
+  
+      <button type="submit">Submit</button> -->
+    </form>
+  </div>
   <div class="content">
     <!-- Main content goes here -->
   </div>

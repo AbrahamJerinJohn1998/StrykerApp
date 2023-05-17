@@ -8,17 +8,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AddtoolsComponent } from './addtools/addtools.component';
 const myRoute:Routes=[
   {
     path:"",
     component:ViewtoolsComponent
+  },
+  {
+    path:"addTools",
+    component:AddtoolsComponent
   }
 ]
 @NgModule({
   declarations: [
     AppComponent,
     ViewtoolsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddtoolsComponent
   ],
   imports: [
     BrowserModule,

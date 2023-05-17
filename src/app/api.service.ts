@@ -8,7 +8,10 @@ export class ApiService {
   constructor(private http:HttpClient) { }
   ViewTools=()=>
   {
-    return this.http.get("http://localhost:8080/viewTools")
+    return this.http.get("http://localhost:8080/view")
+  }
+  addTools=(dataToSend:any)=>{
+    return this.http.post("http://localhost:8080/addTools",dataToSend)
   }
 
 }

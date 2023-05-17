@@ -5,26 +5,32 @@
        <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Serial No</th>
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Status</th>
-            <th scope="col">Description</th>
-            <th scope="col">Action</th>
+                            <th scope="col">Serial No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let i of data">
-            <td>{{i.serialNo}}</td>
+            <td>{{i.id}}</td>
             <td>{{i.name}}</td>
             <td>{{i.category}}</td>
             <td>{{i.quantity}}</td>
             <td>{{i.status}}</td>
             <td>{{i.description}}</td>
-        </tr>  
+        </tr> 
+        
     </tbody>
        </table>
         </div>
     </div>
 </div>
+
+
+
+
+

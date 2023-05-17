@@ -20,4 +20,23 @@
   .navbar ul li a:hover {
     color: #000;
   }
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .popup-large {
+    width: 800px; 
+    height: 450px; 
+  }
+  .popup form input,
+.popup form textarea {
+  width: 100%; 
+  padding: 10px; 
+}
   
