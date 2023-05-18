@@ -1,81 +1,80 @@
-<!-- <div class="navbar"> -->
-  <!-- Sidebar content here -->
-  <!-- <ul>
-    <li><a routerLink="/powertools">Power Tools</a></li>
-    
-  </ul>
-</div> -->
 <html>
 <head>
   <title></title>
   <link rel="stylesheet" type="text/css" href="navbar.component.css">
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-        <li><a routerLink="/powertools">Power Tools</a></li>
-        <li><button (click)="openPopup()">Add Tools</button></li>
-      </ul>
-  </nav>
-  <div *ngIf="isOpen" class="popup popup-large">
-    <h2>Add Tools</h2>
-    <form (submit)="submitForm()">
-        <div class="container">
-            <div class="row">
-                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div class="row g-3">
-                        <div class="col col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                            <label for="name" class="form-label-control">Name:</label>
-                            <input type="text" id="name" name="name" [(ngModel)]="formData.name" class="form-control">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#"></a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"></a>
+        </li>
+             </ul>
+      <form class="d-flex" role="search">
+        <button (click)="openPopup()">Add Tools</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+   <div *ngIf="isOpen" class="popup popup-large">
+      <h4>Add Tools</h4>
+      <form (ngSubmit)="readValue()" #formRef="ngForm">
+          <div class="container">
+              <div class="row">
+                  <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                      <div class="row g-3">
+                          <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                              <label for="name" class="form-label-control">Name:</label>
+                              <input type="text" id="name" name="name" [(ngModel)]="name" class="form-control" required >
+                              <!-- <span class="text-danger"
+                                *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required">
+                                User Name is required
+                            </span> -->
+                              
+                          </div>
+                          <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                              <label for="category" class="form-label">Category:</label>
+        <select id="category" name="category" [(ngModel)]="category" class="form-control">
+          <option >Power Tool</option>  
+          <option>Consumable</option>
+          <option>Power Tool Set</option>  </select>
+                          </div>
+                          <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                              <label for="quantity" class="form-label">Quantity:</label>
+                              <input type="text" id="quantity" name="quantity" [(ngModel)]="quantity" class="form-control">
+                          </div>
+                          <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                              <label for="status" class="form-label">Status:</label>
+        <input type="text" id="status" name="status" [(ngModel)]="status" class="form-control">
+                          </div>
+                          <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                              <label for="description"class="form-label">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="description" class="form-control"></textarea>
+                          </div>
+                          <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                              <button type="submit" class="btn" >Submit</button>
+                          </div>
+                          <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                          <button type="reset"  class="btn"  >Clear</button>
                         </div>
-                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <label for="category" class="form-label">Category:</label>
-      <input type="category" id="category" name="category" [(ngModel)]="formData.category" class="form-control">
-                        </div>
-                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <label for="quantity" class="form-label">Quantity:</label>
-                            <input type="quantity" id="quantity" name="quantity" [(ngModel)]="formData.quantity" class="form-control">
-                        </div>
-                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <label for="status" class="form-label">Status:</label>
-      <input type="status" id="status" name="status" [(ngModel)]="formData.status" class="form-control">
-                        </div>
-                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                            <label for="description"class="form-label">Description:</label>
-      <input type="description" id="description" name="description" [(ngModel)]="formData.description" class="form-control">
-                        </div>
-                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                            <button type="submit">Submit</button>
-                        </div>
-                        <!-- <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                            <button type="clear">Clear</button>
-                        </div> -->
-                    </div>
-        
-                </div>
+                                                </div>
+          
+                  </div>
+              </div>
             </div>
-          </div>
-        
-      <!-- <label for="name">Name:</label>
-      <input type="text" id="name" name="name" [(ngModel)]="formData.name">
+      </form>
+    </div>
+    <div class="content">
       
-      <label for="category">Category:</label>
-      <input type="category" id="category" name="category" [(ngModel)]="formData.category">
+    </div>
+  </body>
+  </html> 
 
-      <label for="quantity">Quantity:</label>
-      <input type="quantity" id="quantity" name="quantity" [(ngModel)]="formData.quantity">
-
-      <label for="status">Status:</label>
-      <input type="status" id="status" name="status" [(ngModel)]="formData.status">
-
-      <label for="description">Description:</label>
-      <input type="description" id="description" name="description" [(ngModel)]="formData.description">
-  
-      <button type="submit">Submit</button> -->
-    </form>
-  </div>
-  <div class="content">
-    <!-- Main content goes here -->
-  </div>
-</body>
-</html>

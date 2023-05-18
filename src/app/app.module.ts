@@ -8,15 +8,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AddtoolsComponent } from './addtools/addtools.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const myRoute:Routes=[
   {
     path:"",
     component:ViewtoolsComponent
-  },
-  {
-    path:"addTools",
-    component:AddtoolsComponent
   }
 ]
 @NgModule({
@@ -24,14 +21,16 @@ const myRoute:Routes=[
     AppComponent,
     ViewtoolsComponent,
     NavbarComponent,
-    AddtoolsComponent
+   
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(myRoute),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

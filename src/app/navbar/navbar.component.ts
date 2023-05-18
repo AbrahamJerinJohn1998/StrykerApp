@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,18 +11,51 @@ export class NavbarComponent {
   openPopup() {
     this.isOpen = true;
   }
-  formData = {
-    name: '',
-    category: '',
-    quantity:'',
-    status:'',
+
+  name= ""
+    category=""
+    quantity=""
+    status=""
+    description=""
+
+    
+  constructor(private api:ApiService){}
+  clearForm() {
+    
+      name: '';
+      category: '';
+      quantity: '';
+      status:'';
     description:''
-  };
-  submitForm() {
-    // Perform form submission logic here
-    console.log(this.formData);
-    // Optionally, close the popup after form submission
-    this.isOpen = false;
+    }
+    readValue=()=>
+{
+  let data:any={"name":this.name,"category":this.category,"quantity":this.quantity,"status":this.status,"description":this.description}
+  console.log(data)
+  this.isOpen = false;
+  // if (this.formRef.valid) 
+  {
+  this.api.addTools(data).subscribe(
+    (response:any)=>
+    {
+      console.log(response)
+      if (response.status=="Tool added successfully ") {
+        alert("Tool added successfully")
+        this.name=""
+        this.category=""
+        this.status=""
+        this.status=""
+        this.description=""
+        location.reload();
+      } else {
+        alert("something went wrong")
+      }
+      
+      
+    }
+  )
   }
-  
- }
+}
+data:any=[]
+  }
+ 
