@@ -33,7 +33,6 @@ export class NavbarComponent {
   let data:any={"name":this.name,"category":this.category,"quantity":this.quantity,"status":this.status,"description":this.description}
   console.log(data)
   this.isOpen = false;
-  // if (this.formRef.valid) 
   {
   this.api.addTools(data).subscribe(
     (response:any)=>
@@ -57,5 +56,20 @@ export class NavbarComponent {
   }
 }
 data:any=[]
+
+nameInvalid: boolean = false;
+
+nameRequired: boolean = false;
+
+nameInvalidFormat: boolean = false;
+
+ onNameChange() {
+
+this.nameRequired = this.name == null || this.name.trim() === '';
+
+ this.nameInvalidFormat = !this.nameRequired ;
+
+ this.nameInvalid = this.nameRequired || this.nameInvalidFormat;
+ }
   }
  

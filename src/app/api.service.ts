@@ -8,10 +8,13 @@ export class ApiService {
   constructor(private http:HttpClient) { }
   ViewTools=()=>
   {
-    return this.http.get("http://localhost:8080/view")
+    return this.http.get("http://localhost:8080/viewPowerTools")
   }
   addTools=(dataToSend:any)=>{
-    return this.http.post("http://localhost:8080/add",dataToSend)
+    return this.http.post("http://localhost:8080/addPowerTools",dataToSend)
+  }
+  deleteTools=(dataToSend:any)=>{
+    return this.http.post("http://localhost:8080/deletePowerTools",dataToSend)
   }
 
 }

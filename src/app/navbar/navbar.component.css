@@ -1,6 +1,6 @@
 .navbar {
-    width: 1330px;
-    margin-left: 200px;
+    width: 1530px;
+    margin-left: 0px;
     background-color: #f5e059;
   }
   
@@ -31,21 +31,6 @@
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
-  /* .popup popup-large {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  } */
-  
-  /* form {
-    width: 700px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  } */
-  
   .popup-large {
     width: 750px; 
     height: 410px; 
@@ -58,13 +43,18 @@
 }
 .btn {
   display: block;
-  width: 60%;
+  width: 100%;
   border: none;
-  background-color: #dfd32f;
+  background-color: #edd013;
   padding: 14px 28px;
   font-size: 14px;
   cursor: pointer;
   text-align: center;
 }
+.btn-add {
+  background-color: #f57c26;
+
+}
+
 
 

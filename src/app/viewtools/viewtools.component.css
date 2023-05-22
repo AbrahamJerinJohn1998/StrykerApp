@@ -3,3 +3,7 @@
     width: 1330px;
     height: 90vh;
   }
+  table, th, td {
+    border: 3px solid black;
+  }
+  
