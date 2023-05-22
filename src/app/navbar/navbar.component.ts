@@ -12,64 +12,49 @@ export class NavbarComponent {
     this.isOpen = true;
   }
 
-  name= ""
-    category=""
-    quantity=""
-    status=""
-    description=""
+  name = ""
+  category = ""
+  quantity = ""
+  status = ""
+  description = ""
 
-    
-  constructor(private api:ApiService){}
+
+  constructor(private api: ApiService) { }
   clearForm() {
-    
-      name: '';
-      category: '';
-      quantity: '';
-      status:'';
-    description:''
-    }
-    readValue=()=>
-{
-  let data:any={"name":this.name,"category":this.category,"quantity":this.quantity,"status":this.status,"description":this.description}
-  console.log(data)
-  this.isOpen = false;
-  {
-  this.api.addTools(data).subscribe(
-    (response:any)=>
+
+    name: '';
+    category: '';
+    quantity: '';
+    status: '';
+    description: ''
+  }
+  readValue = () => {
+    let data: any = { "name": this.name, "category": this.category, "quantity": this.quantity, "status": this.status, "description": this.description }
+    console.log(data)
+    this.isOpen = false;
     {
-      console.log(response)
-      if (response.status=="Tool added successfully ") {
-        alert("Tool added successfully")
-        this.name=""
-        this.category=""
-        this.status=""
-        this.status=""
-        this.description=""
-        location.reload();
-      } else {
-        alert("something went wrong")
-      }
-      
-      
+      this.api.addTools(data).subscribe(
+        (response: any) => {
+          console.log(response)
+          if (response.status == "Tool added successfully ") {
+            alert("Tool added successfully")
+            this.name = ""
+            this.category = ""
+            this.status = ""
+            this.status = ""
+            this.description = ""
+            location.reload();
+          } else {
+            alert("something went wrong")
+          }
+
+
+        }
+      )
     }
-  )
   }
+  data: any = []
+
+
 }
-data:any=[]
 
-nameInvalid: boolean = false;
-
-nameRequired: boolean = false;
-
-nameInvalidFormat: boolean = false;
-
- onNameChange() {
-
-this.nameRequired = this.name == null || this.name.trim() === '';
-
- this.nameInvalidFormat = !this.nameRequired ;
-
- this.nameInvalid = this.nameRequired || this.nameInvalidFormat;
- }
-  }
- 

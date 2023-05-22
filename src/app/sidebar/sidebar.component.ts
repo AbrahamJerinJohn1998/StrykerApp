@@ -7,13 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  constructor (private route:Router){}
-  powerTools=()=>
-  {
-this.route.navigate(["/"]);
+  constructor(private route: Router) { }
+  powerTools = () => {
+    this.route.navigate(["/"]);
   }
-  powerToolset=()=>
-  {
-this.route.navigate(["/view"]);
+  powerToolset = () => {
+    this.route.navigate(["/view"]);
   }
 }
