@@ -6,4 +6,41 @@
   table, th, td {
     border: 3px solid black;
   }
-  
+  .popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #150101;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .popup-large {
+    width: 750px; 
+    height: 500px; 
+  }
+  .popup form input,
+.popup form textarea {
+  width: 100%; 
+  height: 60%;
+  padding: 10px; 
+}
+.btn-updateTool {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #eb7a11;
+  padding: 14px 28px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+.pagination {text-align: right;}
+.btn-close {
+  float: right;
+
+}
+.form-validation{
+  color: #f40b0b;
+}

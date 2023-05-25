@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -11,6 +11,9 @@ export class NavbarComponent {
   openPopup() {
     this.isOpen = true;
   }
+  closePopup() {
+    this.isOpen = false;
+  }
 
   name = ""
   category = ""
@@ -20,18 +23,53 @@ export class NavbarComponent {
 
 
   constructor(private api: ApiService) { }
-  clearForm() {
+  // clearForm() {
 
-    name: '';
-    category: '';
-    quantity: '';
-    status: '';
-    description: ''
+  //   name: '';
+  //   category: '';
+  //   quantity: '';
+  //   status: '';
+  //   description: ''
+  // }
+  
+
+ nameInvalid: boolean = false;
+  nameRequired: boolean = false;
+  categoryInvalid: boolean = false;
+  categoryRequired: boolean = false;
+  quantityInvalid: boolean = false;
+  quantityRequired: boolean = false;
+  statusInvalid: boolean = false;
+  statusRequired: boolean = false;
+  descriptionInvalid: boolean = false;
+  descriptionRequired: boolean = false;
+   
+  onNameChange() {
+  this.nameRequired = this.name == null || this.name.trim() === '';
+ this.nameInvalid = this.nameRequired 
   }
+  onCategoryChange() {
+    this.categoryRequired = this.category == null || this.category.trim() === '';
+   this.categoryInvalid = this.categoryRequired 
+    }
+    onQuantityChange() {
+      this.quantityRequired = this.quantity== null || this.quantity.trim() === '';
+     this.quantityInvalid = this.quantityRequired 
+      }
+      onStatusChange() {
+        this.statusRequired = this.status == null || this.status.trim() === '';
+       this.statusInvalid = this.statusRequired 
+        }
+        onDescriptionChange() {
+          this.descriptionRequired = this.description== null || this.description.trim() === '';
+         this.descriptionInvalid = this.descriptionRequired 
+          }
+
+
   readValue = () => {
     let data: any = { "name": this.name, "category": this.category, "quantity": this.quantity, "status": this.status, "description": this.description }
     console.log(data)
-    this.isOpen = false;
+
     {
       this.api.addTools(data).subscribe(
         (response: any) => {
@@ -43,6 +81,7 @@ export class NavbarComponent {
             this.status = ""
             this.status = ""
             this.description = ""
+            this.isOpen = false;
             location.reload();
           } else {
             alert("something went wrong")

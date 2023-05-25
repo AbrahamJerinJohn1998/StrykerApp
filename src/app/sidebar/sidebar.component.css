@@ -18,4 +18,8 @@
     cursor: pointer;
     text-align: center;
   }
+  .btn-close {
+    float: right;
+  
+  }
   

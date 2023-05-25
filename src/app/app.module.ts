@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 const myRoute:Routes=[
   {
     path:"",
@@ -30,7 +33,11 @@ const myRoute:Routes=[
     RouterModule.forRoot(myRoute),
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class SidebarComponent {
   constructor(private route: Router) { }
   powerTools = () => {
-    this.route.navigate(["/"]);
+    this.route.navigate([""]);
   }
   powerToolset = () => {
     this.route.navigate(["/view"]);
